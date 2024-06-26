@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
+import RDBMSPage from "./components/RDBMSPage/RDBMSPage";
+import FTPPage from "./components/FTPPage/FTPPage";
+import RestApiPage from "./components/RestApiPage/RestApiPage";
+import DataLakePage from "./components/DataLakePage/DataLakePage";
+import SnowflakePage from "./components/SnowflakePage/SnowflakePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" Component={HomePage} />
+          <Route exact path="/rdbms" Component={RDBMSPage} />
+          <Route exact path="/ftp" Component={FTPPage} />
+          <Route exact path="/restapi" Component={RestApiPage} />
+          <Route exact path="/datalake" Component={DataLakePage} />
+          <Route exact path="/snowflake" Component={SnowflakePage} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
